@@ -1,0 +1,77 @@
+<html>
+
+<head>
+    <title>Employee Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- Navbar Start -->
+        <div class="row">
+            <nav class="navbar navbar-dark bg-dark col-12">
+                <a class="navbar-brand" href="#">Employee Login</a>
+                <a class="nav-item" href="#">Logout</a>
+            </nav>
+        </div>
+        <!-- Navbar End -->
+        <!-- Registration form start -->
+        <div class="mt-2 col-6">
+            <h2 style="color: steelblue">Enter your details:</h2>
+            <form action="" method="POST" onsubmit="return validator.validate()" id="registrationForm">
+                <div class="form-group" style="font-size: 20px">
+                    <label for="firstNameText">First Name</label>
+                    <input type="text" class="form-control" id="firstNameText" placeholder="Enter Firstname">
+                    <small id="firstNameError" class="form-text" style="color: tomato"></small>
+                </div>
+                <div class="form-group" style="font-size: 20px">
+                    <label for="lastNameText">Last Name</label>
+                    <input type="text" class="form-control" id="lastNameText" placeholder="Enter Lastname" >
+                    <small id="lastNameError" class="form-text" style="color: tomato"></small>
+                </div>
+                <div class="form-group" style="font-size: 20px">
+                    <label for="usernameText">Username</label>
+                    <input type="text" class="form-control" id="usernameText" placeholder="Enter your username" >
+                    <small id="usernameError" class="form-text" style="color: tomato"></small>
+                </div>
+                <div class="form-group" style="font-size: 20px">
+                    <label for="emailText">Email</label>
+                    <input type="email" class="form-control" id="emailText" placeholder="Enter your email id" >
+                    <small id="emailHelp" class="form-text" style="color: tomato"></small>
+                </div>
+                <div class="form-group">
+                    <label for="department" style="font-size: 20px">Department</label>
+                    <select class="custom-select" >
+                        <option selected>--- Select department ---</option>
+                        <option value="transport">Transport</option>
+                        <option value="security">Security</option>
+                        <option value="development">Development</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div class="form-group" style="font-size: 20px">
+                    <label for="dobText">Date of Birth</label>
+                    <input type="text" class="form-control" id="dobText" onclick="return dateshow()">
+                </div>
+                <div class="form-group" style="font-size: 20px">
+                    <label for="pwdText">Password</label>
+                    <input type="password" class="form-control" id="pwdText" placeholder="Enter password" >
+                    <small id="pwdError" class="form-text" style="color: tomato"></small>
+                </div>
+                <div class="form-group" style="font-size: 20px">
+                    <label for="cfmpwdText">Confirm Password</label>
+                    <input type="password" class="form-control" id="cfmpwdText" placeholder="Enter password again" >
+                    <small id="cfmpwdError" class="form-text" style="color: tomato"></small>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Sign Up" onclick="return validator.validate()">
+            </form>
+        </div>
+        <!-- Registration form end -->
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src = "./calendar.js"></script>
+    <script src = "./jquery-ui.js"></script>
+    <script src="./validator.js"></script>
+</body>
+</html>
