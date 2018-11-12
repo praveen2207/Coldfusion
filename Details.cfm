@@ -3,6 +3,11 @@
 </cfquery>
 
 <div id = "details">
+    <cfoutput>
+    <div class="signedIn">
+        Welcome #details.first_name#!
+    </div>
+    </cfoutput>
     <h2>Your details:</h2>
     <table border = "1">
         <tr><th>UserID</th><th>Firstname</th><th>Lastname</th><th>Username</th><th>Email</th><th>Date of Birth</th><th>Department</th></tr>

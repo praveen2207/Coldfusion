@@ -12,7 +12,7 @@
             <div class="row">
                 <nav class="navbar navbar-dark bg-dark col-12">
                     <a class="navbar-brand" href="index.cfm">Employee Login</a>
-                    <cfif not (cgi.script_name eq '/EmpLogin/index.cfm' or cgi.script_name eq '/EmpLogin/LoginCheck.cfm' or cgi.script_name eq '/EmpLogin/Registration.cfm' or cgi.script_name eq '/EmpLogin/Register.cfm')>
+                    <cfif not (cgi.script_name eq '/EmpLogin/index.cfm' or cgi.script_name eq '/EmpLogin/LoginCheck.cfm' or cgi.script_name eq '/EmpLogin/Registration.cfm' or cgi.script_name eq '/EmpLogin/Register.cfm' or cgi.script_name eq '/EmpLogin/ForgotPass.cfm' or cgi.script_name eq '/EmpLogin/NewPass.cfm' or cgi.script_name eq '/EmpLogin/PasswordChange.cfm')>
                         <a class="nav-item" style = "color:white" href="index.cfm">Logout</a>
                     </cfif>
                 </nav>

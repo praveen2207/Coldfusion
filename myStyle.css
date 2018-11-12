@@ -3,18 +3,34 @@
 body {
     font-family: 'Open Sans',sans-serif;
 }
+.forgot{
+    font-size: 15px;
+    margin-left: 190px;
+}
 #details{
     margin-top: 40px;
     margin-left: 30px;
 }
 p{
-    font-size: 30px;
+    font-size: 20px;
 }
 p > a{
     font-size: 20px;
 }
+.signedIn{
+    font-size: 25px;
+    float: right;
+}
 .col-12 {
     width: 100%;
+}
+.success{
+    font-size: 30px;
+    color: green;
+}
+.error{
+    font-size: 30px;
+    color: tomato;
 }
 h2{
     color: steelblue;

@@ -6,5 +6,8 @@
     <script src="calendar.js"></script>
     <script src = "validator.js"></script>
 </cfif>
+<cfif cgi.script_name eq "/EmpLogin/NewPass.cfm">
+    <script src = "validator.js"></script>
+</cfif>
 </body>
 </html>

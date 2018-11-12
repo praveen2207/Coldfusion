@@ -20,7 +20,7 @@ function checkPassword(pwd) {
 }
 
 function validate() {
-    if (firstname.value == ""){
+    if (firstname.value == "") {
         firstnameError.innerHTML = "Firstname cannot be blank!";
     }
     else if (!checkName(firstname.value)) {
@@ -56,9 +56,9 @@ function validate() {
     else
         passError.innerHTML = "";
 
-    if(cfmpass.value == "")
-        cfmpassError.innerHTML = "Enter the password again!";    
-    else if(pass.value != cfmpass.value){
+    if (cfmpass.value == "")
+        cfmpassError.innerHTML = "Enter the password again!";
+    else if (pass.value != cfmpass.value) {
         cfmpassError.innerHTML = "Passwords don't match!";
         return false;
     }
@@ -66,10 +66,33 @@ function validate() {
         cfmpassError.innerHTML = "Passwords match!"
 }
 
-function clearError(){
+function clearError() {
     firstnameError.innerHTML = "";
     lastnameError.innerHTML = "";
     usernameError.innerHTML = "";
     passError.innerHTML = "";
     cfmpassError.innerHTML = "";
+}
+
+function validateForgot() {
+    forgotpass = document.getElementById("newPassword");
+    cfmForgotpass = document.getElementById("cfmPassword");
+    passError = document.getElementById("forgotpwdError");
+    cfmpassError = document.getElementById("forgotcfmError");
+    if (forgotpass.value == "")
+        passError.innerHTML = "Password cannot be blank!";
+    else if (!checkPassword(forgotpass.value)) {
+        passError.innerHTML = "Password should contain atleast one uppercase, one numeric and one special character";
+    }
+    else
+        passError.innerHTML = "";
+
+    if (cfmForgotpass.value == "")
+        cfmpassError.innerHTML = "Enter the password again!";
+    else if (forgotpass.value != cfmForgotpass.value) {
+        cfmpassError.innerHTML = "Passwords don't match!";
+        return false;
+    }
+    else
+        cfmpassError.innerHTML = "Passwords match!"
 }

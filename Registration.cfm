@@ -1,6 +1,6 @@
 <!-- Registration form start -->
     <div class="mt-3 ml-5">
-        <h1 style="color: steelblue">Enter your details:</h1>
+        <h2 style="color: steelblue">Enter your details:</h2>
         <form action="Register.cfm" method="POST" id = "registrationForm">
             <div class="form-group">
                 <label for="firstNameText">First Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
