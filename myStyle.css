@@ -1,4 +1,3 @@
-/* @import "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"; */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 body {
     font-family: 'Open Sans',sans-serif;
@@ -11,15 +10,23 @@ body {
     margin-top: 40px;
     margin-left: 30px;
 }
+a > button{
+    float: right;
+    margin-right: 50px;
+}
 p{
     font-size: 20px;
 }
 p > a{
     font-size: 20px;
 }
+hr{
+    margin-top: 50px;
+}
 .signedIn{
     font-size: 25px;
     float: right;
+    margin-right: 50px;
 }
 .col-12 {
     width: 100%;
@@ -130,4 +137,7 @@ button {
 }
 small{
     color: tomato;
+}
+.row > .error{
+    font-size: 10px;
 }

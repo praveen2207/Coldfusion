@@ -1,4 +1,5 @@
 <cfif IsDefined("form.Submit")>
+    <cfif url.mode eq "forgot">
     <cfquery name = "fetchEmail" datasource = "employee">
         select * from user where email = '#form.forgotEmailText#';
     </cfquery>
@@ -33,8 +34,43 @@
         </cfoutput>
     <cfelse>
         <div class = "error mt-5">
-            User not found!!
+            User not found!!<br><br>
+            <p><a href = "ForgotPass.cfm">Back</a><p>
         </div>
+    </cfif>
+    <cfelseif url.mode eq "reset">
+        <cfquery name = "fetchEmail" datasource = "employee">
+            select email from user where userID = "#url.id#";
+        </cfquery>
+        <cfloop query = "fetchEmail">
+            <cfset Variables.mail = email>
+        </cfloop>
+        <cfoutput>
+        <div class = "newPassForm mt-5 ml-5">
+            <form action = "PasswordChange.cfm?mail=#Variables.mail#" method = "post" id = "passwordChangeForm">
+                <div class="form-group">
+                    <label for="forgotEmailText">Enter your email id</label>
+                    <input type="email" class="form-control" name="forgotEmailText" placeholder="Enter your email" required value = "#Variables.mail#">
+                </div><br>
+                <div class="form-group">
+                    <label for="currentPassword">Current Password</label>&nbsp;&nbsp;
+                    <input type="password" class="form-control" required name="currentPassword" id="currentPassword" placeholder="Password">
+                    <small id="currentpwdError" class="form-text"></small>
+                </div><br>
+                <div class="form-group">
+                    <label for="newPassword">New Password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="password" class="form-control" required name="newPassword" id="newPassword" placeholder="Password">
+                    <small id="forgotpwdError" class="form-text"></small>
+                </div><br>
+                <div class="form-group">
+                    <label for="cfmPassword">Confirm Password</label>&nbsp;
+                    <input type="password" class="form-control" required name="cfmPassword" id="cfmPassword" placeholder="Password">
+                    <small id="forgotcfmError" class="form-text"></small>
+                </div><br>
+                <button type="submit" class="btn btn-primary" name = "Submit" onclick = "return validateReset()">Update</button>
+            </form>
+        </div>
+        </cfoutput>
     </cfif>
 <cfelse>
     <cfoutput>

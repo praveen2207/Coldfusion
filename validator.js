@@ -51,7 +51,7 @@ function validate() {
     if (pass.value == "")
         passError.innerHTML = "Password cannot be blank!";
     else if (!checkPassword(pass.value)) {
-        passError.innerHTML = "Password should contain atleast one uppercase, one numeric and one special character";
+        passError.innerHTML = "Password should contain atleast one uppercase, one numeric and one special character and atleast 8 characters";
     }
     else
         passError.innerHTML = "";
@@ -82,7 +82,40 @@ function validateForgot() {
     if (forgotpass.value == "")
         passError.innerHTML = "Password cannot be blank!";
     else if (!checkPassword(forgotpass.value)) {
-        passError.innerHTML = "Password should contain atleast one uppercase, one numeric and one special character";
+        passError.innerHTML = "Password should contain atleast one uppercase, one numeric and one special character and atleast 8 characters";
+    }
+    else
+        passError.innerHTML = "";
+
+    if (cfmForgotpass.value == "")
+        cfmpassError.innerHTML = "Enter the password again!";
+    else if (forgotpass.value != cfmForgotpass.value) {
+        cfmpassError.innerHTML = "Passwords don't match!";
+        return false;
+    }
+    else
+        cfmpassError.innerHTML = "Passwords match!"
+}
+
+function validateReset() {
+    currentpwd = document.getElementById("currentPassword");
+    currentpwdError = document.getElementById("currentpwdError");
+    forgotpass = document.getElementById("newPassword");
+    cfmForgotpass = document.getElementById("cfmPassword");
+    passError = document.getElementById("forgotpwdError");
+    cfmpassError = document.getElementById("forgotcfmError");
+
+    if(currentpwd.value == "")
+        currentpwdError.innerHTML = "Enter current password!";
+    else if(currentpwd.value != "password")
+        currentpwdError.innerHTML = "Wrong current password!";
+    else
+        currentpwdError.innerHTML = "";
+
+    if (forgotpass.value == "")
+        passError.innerHTML = "Password cannot be blank!";
+    else if (!checkPassword(forgotpass.value)) {
+        passError.innerHTML = "Password should contain atleast one uppercase, one numeric and one special character and atleast 8 characters";
     }
     else
         passError.innerHTML = "";
