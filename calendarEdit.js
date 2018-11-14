@@ -1,8 +1,8 @@
 function dateshow(){
-    $('#dobText').datepicker({
+    $('#dob').datepicker({
         changeYear : true,
         maxDate : "-18Y",
         dateFormat : "yy/mm/dd"
     });
 }
-document.getElementById("dobText").onclick = dateshow();
+document.getElementById("dob").onclick = dateshow();

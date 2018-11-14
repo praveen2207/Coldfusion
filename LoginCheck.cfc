@@ -9,7 +9,7 @@
 	<div class = "row">
 	<cfoutput>
 		<cfif LoginCheck.Recordcount GT 0 and local.pwd eq #form.Password#>
-			<cflocation url = "Details.cfm?id=#LoginCheck.userID#">
+			<cflocation url = "Details.cfm?id=#LoginCheck.userID#&operation=view">
 		<cfelse>
 			<p class = "error" style = "font-size:15px;">Incorrect Username or password!</p>
 		</cfif>

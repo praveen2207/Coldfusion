@@ -15,7 +15,7 @@
         <cfif IsDefined("form.Login")>
             <cfinvoke component = "LoginCheck" method = "loginChecker">    
         </cfif>
-        <button type="submit" class="btn btn-primary" name = "Login">Login</button>
+        <button type="submit" class="btn-primary" name = "Login">Login</button>
     </form>
     <br>
     <p style="font-size: 20px">

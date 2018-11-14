@@ -52,6 +52,7 @@ function validate() {
         passError.innerHTML = "Password cannot be blank!";
     else if (!checkPassword(pass.value)) {
         passError.innerHTML = "Password should contain atleast one uppercase, one numeric and one special character and atleast 8 characters";
+        pass.focus();
     }
     else
         passError.innerHTML = "";
@@ -60,6 +61,7 @@ function validate() {
         cfmpassError.innerHTML = "Enter the password again!";
     else if (pass.value != cfmpass.value) {
         cfmpassError.innerHTML = "Passwords don't match!";
+        cfmpass.focus();
         return false;
     }
     else

@@ -84,6 +84,9 @@ a:hover{
 .mt-5{
     margin-top: 50px;
 }
+td > input{
+    width: 190px;
+}
 .ml-5{
     margin-left: 50px;
 }
@@ -102,7 +105,6 @@ input {
     border-radius: 3px;
     border: 1px solid gray;
     height: 30px;
-    margin-left: 20px;
     font-size: 15px;
 }
 button {
