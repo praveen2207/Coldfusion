@@ -85,7 +85,7 @@ a:hover{
     margin-top: 50px;
 }
 td > input{
-    width: 190px;
+    width: 170px;
 }
 .ml-5{
     margin-left: 50px;
@@ -142,4 +142,7 @@ small{
 }
 .row > .error{
     font-size: 10px;
+}
+span{
+    color: steelblue;s
 }

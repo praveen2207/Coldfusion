@@ -44,12 +44,12 @@
         <tr><th>UserID</th><th>Firstname</th><th>Lastname</th><th>Username</th><th>Email</th><th>Date of Birth</th><th>Department</th><th>Submit</th></tr>
             <tr>
                 <td>#details.userID#</td>
-                <td><input type = "text" name = "fname" id = "fname" value = "#details.first_name#"</td>
-                <td><input type = "text" name = "lname" id = "lname" value = "#details.last_name#"</td>
-                <td><input type = "text" name = "username" id = "username" value = "#details.username#"</td>
-                <td><input type = "text" name = "email" id = "email" value = "#details.email#"</td>
-                <td><input type = "text" name = "dob" id = "dob" value = "#details.dob#"</td>
-                <td><input type = "text" name = "dept" id = "dept" value = "#details.dept_name#"</td>
+                <td><input type = "text" name = "fname" id = "fname" value = "#details.first_name#"></td>
+                <td><input type = "text" name = "lname" id = "lname" value = "#details.last_name#"></td>
+                <td><input type = "text" name = "username" id = "username" value = "#details.username#"></td>
+                <td><input type = "text" name = "email" id = "email" value = "#details.email#"></td>
+                <td><input type = "text" name = "dob" id = "dob" value = "#details.dob#"></td>
+                <td><input type = "text" name = "dept" id = "dept" value = "#details.dept_name#"></td>
                 <td><input type = "submit" name = "Submit" value = "Submit" class = "btn-primary"></td>
             </tr>
         </table>
@@ -57,7 +57,7 @@
     </cfif>
 </div><br>
     <div>
-        <a href = "NewPass.cfm?mode=reset&id=#url.id#"><button class = "btn btn-primary">Reset Password</button></a>
+        <a href = "NewPass.cfm?mode=mail&id=#url.id#"><button class = "btn btn-primary">Reset Password</button></a>
         <cfif url.id eq 1>
             <form action = "showAll.cfm" style = "margin-top:50px">
                 <input name = "showAll" type = "submit" id = "showAll" value = "Show All Users" class = "btn-primary">
