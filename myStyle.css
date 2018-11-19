@@ -144,5 +144,8 @@ small{
     font-size: 10px;
 }
 span{
-    color: steelblue;s
+    color: steelblue;
+}
+#resetPasswordForm{
+    float: right;
 }

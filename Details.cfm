@@ -57,7 +57,9 @@
     </cfif>
 </div><br>
     <div>
-        <a href = "NewPass.cfm?mode=mail&id=#url.id#"><button class = "btn btn-primary">Reset Password</button></a>
+        <form method = "POST" action = "NewPass.cfm?mode=mail&id=#url.id#" id = "resetPasswordForm">
+            <input type = "submit" class = "btn-primary" value = "Reset Password" id = "resetPassword" name = "Submit">
+        </form>
         <cfif url.id eq 1>
             <form action = "showAll.cfm" style = "margin-top:50px">
                 <input name = "showAll" type = "submit" id = "showAll" value = "Show All Users" class = "btn-primary">
