@@ -41,27 +41,6 @@
     </cfif>
     
     <cfif url.mode eq "mail">
-    <!---<cfoutput>
-        <div class = "newPassForm mt-5 ml-5">
-            <form action = "PasswordChange.cfm" method = "post">
-                <div class="form-group">
-                    <label for="forgotEmailText">Enter your email id</label>
-                    <input type="email" class="form-control" name="forgotEmailText" placeholder="Enter your email" required>
-                </div><br>
-                <div class="form-group">
-                    <label for="newPassword">New Password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="password" class="form-control" required name="newPassword" id = "newPassword" placeholder="Password">
-                    <small id="forgotpwdError" class="form-text"></small>
-                </div><br>
-                <div class="form-group">
-                    <label for="cfmPassword">Confirm Password</label>&nbsp;
-                    <input type="password" class="form-control" required name="cfmPassword" id = "cfmPassword" placeholder="Password">
-                    <small id="forgotcfmError" class="form-text"></small>
-                </div><br>
-                <button type="submit" class="btn btn-primary" name = "Submit" onclick = "return validateForgot()">Update</button>
-            </form>
-        </div>
-    </cfoutput>--->
     <cfquery name = "fetchUsername" datasource = "employee">
         select * from user where userID = "#url.id#";
     </cfquery>
@@ -70,7 +49,7 @@
         Dear #fetchUsername.first_name#,
         <cfoutput>
         <br/>         
-        <a href = "http://localhost:8500/EmpLogin/NewPass.cfm?mode=reset&id=#url.id#&toker=#variables.myToken#">Click here</a> to reset your password.
+        <a href = "http://localhost:8500/EmpLogin/NewPass.cfm?mode=reset&id=#url.id#&token=#variables.myToken#">Click here</a> to reset your password.
         </cfoutput>
     </cfmail>
     <cfoutput>
@@ -82,31 +61,39 @@
 </cfif>
 
 <cfif url.mode eq "reset">
+    <cfinvoke component = "TokenAuthenticator" method = "authenticator" returnVariable = "variables.validity">
+    <cfset variables.validValues = variables.validity.split(":")>
+    <cfif validValues[2] eq 'true'>
         <cfquery name = "fetchEmail" datasource = "employee">
-            select email from user where userID = "#url.id#";
+        select email from user where first_name = "#variables.validValues[1]#";
         </cfquery>
         <cfloop query = "fetchEmail">
             <cfset Variables.mail = email>
         </cfloop>
         <cfoutput>
-        <div class = "newPassForm mt-5 ml-5">
-            <form action = "PasswordChange.cfm?mail=#Variables.mail#" method = "post" id = "passwordChangeForm">
-                <div class="form-group">
-                    <label for="forgotEmailText">Enter your email id</label>
-                    <input type="email" class="form-control" name="forgotEmailText" placeholder="Enter your email" required value = "#Variables.mail#">
-                </div><br>
-                <div class="form-group">
-                    <label for="newPassword">New Password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="password" class="form-control" required name="newPassword" id="newPassword" placeholder="Password">
-                    <small id="forgotpwdError" class="form-text"></small>
-                </div><br>
-                <div class="form-group">
-                    <label for="cfmPassword">Confirm Password</label>&nbsp;
-                    <input type="password" class="form-control" required name="cfmPassword" id="cfmPassword" placeholder="Password">
-                    <small id="forgotcfmError" class="form-text"></small>
-                </div><br>
-                <button type="submit" class="btn btn-primary" name = "Submit" onclick = "return validateReset()">Update</button>
-            </form>
-        </div>
+            <div class = "newPassForm mt-5 ml-5">
+                <form action = "PasswordChange.cfm?mail=#Variables.mail#" method = "post" id = "passwordChangeForm">
+                    <div class="form-group">
+                        <label for="forgotEmailText">Enter your email id</label>
+                        <input type="email" class="form-control" name="forgotEmailText" placeholder="Enter your email" required value = "#Variables.mail#">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="newPassword">New Password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="password" class="form-control" required name="newPassword" id="newPassword" placeholder="Password">
+                        <small id="forgotpwdError" class="form-text"></small>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="cfmPassword">Confirm Password</label>&nbsp;
+                        <input type="password" class="form-control" required name="cfmPassword" id="cfmPassword" placeholder="Password">
+                        <small id="forgotcfmError" class="form-text"></small>
+                    </div><br>
+                    <button type="submit" class="btn btn-primary" name = "Submit" onclick = "return validateReset()">Update</button>
+                </form>
+            </div>
+        </cfoutput>
+    <cfelse>
+        <cfoutput>
+            <h2>Token Invalid! Please generate the token again.</h2>
         </cfoutput>
     </cfif>
+</cfif>

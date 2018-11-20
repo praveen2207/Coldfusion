@@ -3,10 +3,10 @@ component output="false" displayname=""  {
         return this;
     }
     public function authenticator(){
-        var tokens = url.token.split("/key");
+        var tokens = url.token.split("/key/");
         var timestamp = tokens[1];
         var mykey = tokens[2];
-        var decryptedTimestamp = decrypt(timestamp, mykey, "AES", "Base64")
+        var decryptedTimestamp = Decrypt(timestamp, mykey, 'AES', 'Base64');
         var userInfo = decryptedTimestamp.split("/");
         var username = userInfo[1];
         var dateToCheck = userInfo[2];
