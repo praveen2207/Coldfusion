@@ -60,8 +60,9 @@
         <form method = "POST" action = "NewPass.cfm?mode=mail&id=#url.id#" id = "resetPasswordForm">
             <input type = "submit" class = "btn-primary" value = "Reset Password" id = "resetPassword" name = "Submit">
         </form>
+        <center><a href = "SampleSearch.cfm"><input type = "button" class = "btn-primary" value = "Sample Search" id = "sampleSearch"></a></center>
         <cfif url.id eq 1>
-            <form action = "showAll.cfm" style = "margin-top:50px">
+            <form action = "showAll.cfm">
                 <input name = "showAll" type = "submit" id = "showAll" value = "Show All Users" class = "btn-primary">
             </form>
         </cfif>

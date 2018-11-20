@@ -55,6 +55,8 @@
     <cfoutput>
     <p class = "ml-5">
         Dear #fetchUsername.first_name#, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a mail has been sent to your email id "<span>#fetchUsername.email#</span>" regarding password reset.
+        <br><br>
+        <a href = "index.cfm">Click here</a> to go back to the login page.
     </p>
     </cfoutput>
     </cfif>
@@ -94,6 +96,8 @@
     <cfelse>
         <cfoutput>
             <h2>Token Invalid! Please generate the token again.</h2>
+            <br>
+            <a href = "index.cfm">Go back</a> to login page.
         </cfoutput>
     </cfif>
 </cfif>

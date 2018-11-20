@@ -149,3 +149,6 @@ span{
 #resetPasswordForm{
     float: right;
 }
+#sampleSearch{
+    align-self: center;
+}
